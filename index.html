@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job</title>
+    <link rel="stylesheet" href="output1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white mr-1 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center justify-between w-full sm:w-auto mb-4 sm:mb-0">
+                <img src="995605b2c8d8d96e10a6d46263d29a7a.jpg" alt="Job Portal Logo" class="h-20 sm:h-32 w-auto object-contain">
+                <!-- Hamburger Icon (Visible on Mobile) -->
+                <button id="menu-toggle" class="sm:hidden focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div id="menu" class="hidden sm:flex sm:items-center sm:space-x-4 flex-col sm:flex-row w-full sm:w-auto items-end">
+                <a href="#home" class="hover:text-blue-500 font-bold text-sm sm:text-base lg:text-lg px-3 py-2 text-gray-700 w-full sm:w-auto text-right sm:text-left">Home</a>
+                <a href="#jobs" class="hover:text-blue-500 font-bold text-sm sm:text-base lg:text-lg px-3 py-2 text-gray-700 w-full sm:w-auto text-right sm:text-left">Job Listings</a>
+                <a href="#contact" class="hover:text-blue-500 font-bold text-sm sm:text-base lg:text-lg px-3 py-2 text-gray-700 w-full sm:w-auto text-right sm:text-left">Contact</a>
+                <div class="mt-4 sm:mt-0">
+                    <a href="index1.html" class="bg-blue-500 text-white text-sm sm:text-base px-4 py-2 rounded text-left hover:bg-blue-600">Login</a>
+                </div>
+            </div>
+        
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            });
+        </script>
+        
+        </nav>
+    </header>
+
+<!--image-->    
+<aside id="home">
+    <div class="relative w-full h-64 sm:h-80 md:h-96 lg:h-[46rem] overflow-hidden">
+        <img src="cartoon-illustration-group-people-with-word-happy_575980-8561.avif" alt="" class="w-full h-full object-center">
+        <div class="absolute inset-0 flex items-top justify-center">
+             <p class="text-black text-lg md:text-xl lg:text-3xl font-semibold italic bg-opacity-50 p-4 py-10">"Where tech talent meets the right opportunity."</p>
+        </div>
+    </div>
+</aside>
+
+<!--job-->
+<div class="min-h-screen flex flex-col">
+    <!-- Main Content -->
+    <main class="flex items-center flex-1 flex-col md:flex-col p-4 md:p-6 lg:p-8 gap-4 md:gap-6 lg:gap-8">
+
+        <!-- Main Job Search Section -->
+        <section id="jobs" class="bg-white shadow rounded-lg p-4 md:p-6 lg:px-18 w-full md:w-3/4">
+            <!-- Search Bar -->
+            <div class="flex items-center mb-6">
+                <input 
+                        type="text" 
+                        id="search-bar" 
+                        placeholder="Search jobs (e.g., designer, engineer)" 
+                        class="border p-2 rounded-lg flex-1 text-sm md:text-base lg:text-lg"
+                        oninput="searchJobs()"
+                    >
+                <button class="ml-2 bg-blue-500 text-white p-2 rounded-lg text-sm md:text-base lg:text-lg">🔍</button>
+            </div>
+
+            <!-- Job Listings -->
+            <section class="bg-white shadow rounded-lg p-4 md:p-6 lg:p-8 w-full">
+                <h1 class="text-lg md:text-xl lg:text-2xl font-bold mb-6">Job Listings</h1>
+                <div id="job-listings" class="space-y-4 hidden">
+                    <!-- Job 1 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="Software Engineer, TechCorp">
+                        <div>
+                            <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Software Engineer, TechCorp</h3>
+                            <p class="text-sm md:text-base lg:text-lg text-gray-600">Experience: 3 yrs • Salary: $80K</p>
+                            <p class="text-sm md:text-base lg:text-lg text-gray-600">Bangalore • Posted: 2 days ago</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="applyJob('Software Engineer, TechCorp')"  class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                            <button onclick="saveJob ('Software Engineer, TechCorp' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                    <!-- Job Card 2 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="Data Scientist">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Data Scientist</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">DataLabs • Remote</p>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 4 yrs • Salary: $90K • Posted: 3 days ago</p>
+                            </div>
+                             <div class="flex space-x-2">
+                            <button onclick="applyJob('Data Scientist')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                <button onclick="saveJob ('Data Scientist' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                            </div>
+                    </div>
+                     <!-- Job Card 3 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="UX Designer">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">UX Designer</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">CreativeWorks • Mumbai</p>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 2 yrs • Salary: $70K • Posted: 1 day ago</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button onclick="applyJob('UX Designer')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                <button onclick="saveJob ('UX Designer' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                            </div>
+                    </div>
+                    <!-- Job Card 4 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="Full Stack Developer">
+                        <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Full Stack Developer</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">TechCorp • Bangalore</p>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 5 yrs • Salary: $100K • Posted: 4 days ago</p>
+                        </div>
+                        <div class="flex space-x-2">
+                                <button onclick="applyJob('Full Stack Developer')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                <button onclick="saveJob ('Full Stack Developer' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                    <!-- Job Card 5 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="Web Designer ">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Web Designer</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">CreativeWorks • Mumbai</p>
+                               <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 3 yrs • Salary: $75K • Posted: 2 days ago</p>
+                            </div>
+                              <div class="flex space-x-2">
+                                <button onclick="applyJob('Web Designer')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                <button onclick="saveJob ('Web Designer' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                            </div>
+                    </div>
+                    <!-- Job Card 6 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="Data Analyst ">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Data Analyst</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">DataLabs • Remote</p>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 3 yrs • Salary: $85K • Posted: 5 days ago</p>
+                            </div>
+                                <div class="flex space-x-2">
+                                  <button onclick="applyJob('Data Analyst')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                 <button onclick="saveJob ('Data Analyst' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                                </div>
+                    </div>
+                    <!-- Job Card 7 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="AI Engineer ">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">AI Engineer</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">TechCorp • Bangalore</p>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 4 yrs • Salary: $95K • Posted: 3 days ago</p>
+                            </div>
+                            <div class="flex space-x-2">
+                               <button onclick="applyJob('AI Engineer')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                               <button onclick="saveJob ('AI Engineer' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                            </div>
+                    </div>
+                    <!-- Job Card 8 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="Database Administrator ">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">Database Administrator</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">DataLabs • Remote</p>
+                                 <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 5 yrs • Salary: $88K • Posted: 6 days ago</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button onclick="applyJob('Database Administrator')" class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                <button onclick="saveJob ('Database Administrator' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                            </div>
+                    </div>
+                    <!-- Job Card 9 -->
+                    <div class="job border p-4 rounded-lg flex justify-between items-center" data-title="DevOps Engineer ">
+                            <div>
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-semibold">DevOps Engineer</h3>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600">TechCorp • Bangalore</p>
+                                <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-2">Experience: 4 yrs • Salary: $92K • Posted: 2 days ago</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button onclick="applyJob('DevOps Engineer')"  class="text-green-600 font-semibold text-sm md:text-base lg:text-lg">Apply Now</button>
+                                <button onclick="saveJob ('DevOps Engineer' )" class="bg-green-500 text-white p-2 gap-4 rounded-lg text-sm md:text-base lg:text-lg"><i class="fa-regular fa-bookmark"></i></button>
+                            </div>
+                    </div>
+                </div>
+                <p id="no-results" class="text-sm md:text-base lg:text-lg text-gray-600 hidden">No jobs found.</p>
+            </section>
+        </section>
+
+        <script>
+    
+            // Search functionality
+            function searchJobs() {
+                const searchBar = document.getElementById('search-bar');
+                const jobListings = document.getElementById('job-listings');
+                const noResults = document.getElementById('no-results');
+                const jobs = document.getElementsByClassName('job');
+                const searchTerm = searchBar.value.toLowerCase();
+    
+                // Show job listings section and hide "no results" message initially
+                jobListings.classList.remove('hidden');
+                noResults.classList.add('hidden');
+                let hasResults = false;
+    
+                // Loop through each job and show/hide based on search term
+                for (let job of jobs) {
+                    const title = job.getAttribute('data-title').toLowerCase();
+                    if (searchTerm === '' || !title.includes(searchTerm)) {
+                        job.classList.add('hidden');
+                    } else {
+                        job.classList.remove('hidden');
+                        hasResults = true;
+                    }
+                }
+    
+                // Show "no results" message if no jobs match the search term
+                if (!hasResults && searchTerm !== '') {
+                    noResults.classList.remove('hidden');
+                }
+            }
+            </script>
+
+        <!-- Applied Jobs Section -->
+        <aside class="bg-white shadow rounded-lg p-4 md:p-6 lg:px-18 w-full md:w-3/4">
+            <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg md:text-xl lg:text-2xl font-semibold mb-4">Applied Jobs</h2>
+            <button id="toggle-applied-jobs" onclick="toggleAppliedJobs()" class="bg-blue-500 text-white p-2 rounded-lg text-sm md:text-base lg:text-lg">Show Applied Jobs</button>
+                </div>
+                <div id="applied-jobs" class="hidden space-y-2">
+                    <ul id="applied-jobs-list" class="space-y-2">
+                        <!-- Applied jobs will be appended here -->
+                    </ul>
+                </div> 
+        </aside>
+
+        <script>
+            let appliedJobs = [];
+    
+            function applyJob(title, location) {
+                // Check if the job is already applied to avoid duplicates
+                if (!appliedJobs.some(job => job.title === title)) {
+                    appliedJobs.push({ title, location });
+                    updateAppliedJobs();
+                }
+            }
+    
+            function updateAppliedJobs() {
+                const appliedJobsList = document.getElementById('applied-jobs-list');
+                appliedJobsList.innerHTML = ''; // Clear existing list
+                appliedJobs.forEach(job => {
+                    const li = document.createElement('li');
+                    li.className = 'border-b py-2 text-sm md:text-base lg:text-lg';
+                    li.textContent = `${job.title} - ${job.location}`;
+                    appliedJobsList.appendChild(li);
+                });
+    
+                // Update the toggle button text
+                const toggleButton = document.getElementById('toggle-applied-jobs');
+                toggleButton.textContent = appliedJobs.length > 0 ? 'Show Applied Jobs' : 'No Applied Jobs';
+            }
+    
+            function toggleAppliedJobs() {
+                const appliedJobsSection = document.getElementById('applied-jobs');
+                appliedJobsSection.classList.toggle('hidden');
+                const toggleButton = document.getElementById('toggle-applied-jobs');
+                toggleButton.textContent = appliedJobsSection.classList.contains('hidden') ? 'Show Applied Jobs' : 'Hide Applied Jobs';
+            }
+        </script>
+
+        <!-- Saved Jobs Section -->
+        <aside class="bg-white shadow rounded-lg p-4 md:p-6 lg:px-18 w-full md:w-3/4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg md:text-xl lg:text-2xl font-semibold mb-4">Saved Jobs</h2>
+                <button id="toggle-saved-jobs" onclick="toggleSavedJobs()" class="bg-blue-500 text-white p-2 rounded-lg text-sm md:text-base lg:text-lg">Show Saved Jobs</button>
+            </div>
+            <div id="saved-jobs" class="hidden space-y-2">
+                <ul id="saved-jobs-list" class="space-y-2">
+                    <!-- Saved jobs will be appended here -->
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        let savedJobs = [];
+
+        function saveJob(title, location) {
+            // Check if the job is already saved to avoid duplicates
+            if (!savedJobs.some(job => job.title === title)) {
+                savedJobs.push({ title, location });
+                updateSavedJobs();
+            }
+        }
+
+        function updateSavedJobs() {
+            const savedJobsList = document.getElementById('saved-jobs-list');
+            savedJobsList.innerHTML = ''; // Clear existing list
+            savedJobs.forEach(job => {
+                const li = document.createElement('li');
+                li.className = 'border-b py-2 text-sm md:text-base lg:text-lg';
+                li.textContent = `${job.title} - ${job.location}`;
+                savedJobsList.appendChild(li);
+            });
+
+            // Update the toggle button text
+            const toggleButton = document.getElementById('toggle-saved-jobs');
+            toggleButton.textContent = savedJobs.length > 0 ? 'Show Saved Jobs' : 'No Saved Jobs';
+        }
+
+        function toggleSavedJobs() {
+            const savedJobsSection = document.getElementById('saved-jobs');
+            savedJobsSection.classList.toggle('hidden');
+            const toggleButton = document.getElementById('toggle-saved-jobs');
+            toggleButton.textContent = savedJobsSection.classList.contains('hidden') ? 'Show Saved Jobs' : 'Hide Saved Jobs';
+        }
+    </script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-green-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+            <p class="text-lg mb-6">Questions about our job openings? Contact us!</p>
+            <p>Email: jobs@techcompany.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 IT Jobs for Students. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
